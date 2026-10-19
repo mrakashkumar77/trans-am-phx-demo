@@ -21,6 +21,7 @@ export {
 } from "./SectionHeading";
 export { MenuItemCard, type MenuItemCardProps } from "./MenuItemCard";
 export { ImageLightbox, type ImageLightboxProps } from "./ImageLightbox";
+export { FadeIn, FadeInStagger, type FadeInProps } from "./FadeIn";
 export {
   InstagramIcon,
   FacebookIcon,

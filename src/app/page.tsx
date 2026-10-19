@@ -1,6 +1,6 @@
 import {
   HeroSection,
-  BrandIntroSection,
+  AboutSection,
   MenuSection,
   GallerySection,
   EventsCommunitySection,
@@ -10,22 +10,22 @@ import {
 export default function HomePage() {
   return (
     <>
-      {/* ── Main Hero Section ─────────────────────────────── */}
+      {/* ── Hero Section (Good Food. Great Art. Local Vibes.) ── */}
       <HeroSection />
 
-      {/* ── Brand Introduction & Core Concept ─────────────── */}
-      <BrandIntroSection />
+      {/* ── Section 1: About the Cafe (Anchor: #about) ───────── */}
+      <AboutSection />
 
-      {/* ── Handcrafted Sample Menu (Anchor: #menu) ───────── */}
+      {/* ── Sample Cafe Menu (Anchor: #menu) ─────────────────── */}
       <MenuSection />
 
-      {/* ── Section 1: Art Gallery (Anchor: #gallery) ─────── */}
+      {/* ── Art Gallery Section (Anchor: #gallery) ───────────── */}
       <GallerySection />
 
-      {/* ── Section 2: Events & Community (Anchor: #events) ── */}
+      {/* ── Events & Community Section ───────────────────────── */}
       <EventsCommunitySection />
 
-      {/* ── Visit & Hours (Anchor: #visit) ────────────────── */}
+      {/* ── Sections 2, 3 & 4: Visit Us, Hours & Contact (#visit) */}
       <VisitSection />
     </>
   );

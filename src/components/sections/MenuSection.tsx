@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
 import { MenuItemCard } from "@/components/ui/MenuItemCard";
@@ -94,12 +95,21 @@ export default function MenuSection() {
           </div>
         </div>
 
-        {/* Responsive Editorial Menu Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-          {filteredItems.map((item) => (
-            <MenuItemCard key={item.id} item={item} />
-          ))}
-        </div>
+        {/* Responsive Editorial Menu Grid with subtle category cross-fade */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedCategory}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch"
+          >
+            {filteredItems.map((item) => (
+              <MenuItemCard key={item.id} item={item} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
         {/* Small Bottom Information Strip */}
         <div className="mt-14 pt-8 border-t border-charcoal/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-charcoal-muted">

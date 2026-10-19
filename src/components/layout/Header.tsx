@@ -67,7 +67,7 @@ export default function Header() {
               TRANS AM CAFE
             </span>
             <span className="hidden sm:inline-block text-[10px] uppercase tracking-[0.22em] text-burnt-orange font-semibold mt-0.5">
-              Sandwiches &amp; Art · Phoenix, AZ
+              Sandwiches &amp; Art Gallery
             </span>
           </div>
         </Link>

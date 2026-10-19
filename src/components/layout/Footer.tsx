@@ -2,12 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-} from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { Container } from "@/components/ui/Container";
 import {
@@ -31,7 +26,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand Info */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2.5">
+            <Link href="#top" className="flex items-center gap-2.5">
               <span className="flex size-8 items-center justify-center rounded-xs bg-burnt-orange text-white font-display font-bold text-sm">
                 TA
               </span>
@@ -77,32 +72,54 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Location & Contact */}
+          {/* Location & Social */}
           <div>
             <h3 className="font-display text-sm font-semibold tracking-wider uppercase text-burnt-orange mb-4">
-              Visit Us
+              Location &amp; Contact
             </h3>
             <ul className="space-y-3 text-sm text-cream/80">
               <li className="flex items-start gap-2.5">
                 <MapPin className="size-4 text-burnt-orange shrink-0 mt-0.5" />
-                <span>{siteConfig.address}</span>
+                <div>
+                  <span className="font-medium text-cream">{siteConfig.address}</span>
+                  <span className="text-xs text-cream/50 block mt-0.5">
+                    (City &amp; state pending confirmation)
+                  </span>
+                </div>
               </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="size-4 text-burnt-orange shrink-0" />
+
+              {siteConfig.phone && (
+                <li className="flex items-center gap-2.5">
+                  <Phone className="size-4 text-burnt-orange shrink-0" />
+                  <a
+                    href={`tel:${siteConfig.phone.replace(/[^0-9]/g, "")}`}
+                    className="hover:text-white transition-colors"
+                  >
+                    {siteConfig.phone}
+                  </a>
+                </li>
+              )}
+
+              {siteConfig.email && (
+                <li className="flex items-center gap-2.5">
+                  <Mail className="size-4 text-burnt-orange shrink-0" />
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="hover:text-white transition-colors"
+                  >
+                    {siteConfig.email}
+                  </a>
+                </li>
+              )}
+
+              <li className="pt-1">
                 <a
-                  href={`tel:${siteConfig.phone.replace(/[^0-9]/g, "")}`}
-                  className="hover:text-white transition-colors"
+                  href={siteConfig.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs text-burnt-orange hover:text-cream transition-colors font-mono"
                 >
-                  {siteConfig.phone}
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="size-4 text-burnt-orange shrink-0" />
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="hover:text-white transition-colors"
-                >
-                  {siteConfig.email}
+                  <span>Instagram: {siteConfig.instagramHandle}</span>
                 </a>
               </li>
             </ul>
@@ -121,7 +138,13 @@ export default function Footer() {
                   className="flex justify-between border-b border-cream/10 pb-1"
                 >
                   <span className="text-cream/70">{schedule.day}</span>
-                  <span className="font-medium text-cream">{schedule.time}</span>
+                  <span
+                    className={`font-mono text-xs ${
+                      schedule.isClosed ? "text-cream/40" : "font-medium text-cream"
+                    }`}
+                  >
+                    {schedule.time}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -134,7 +157,7 @@ export default function Footer() {
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
           <p className="tracking-wide">
-            Vintage American Cafe &amp; Contemporary Art Gallery · Phoenix, AZ
+            Sandwich Shop &amp; Art Gallery · 1506 Grand Ave
           </p>
         </div>
       </Container>

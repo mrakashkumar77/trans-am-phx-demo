@@ -14,7 +14,7 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, className }) =
 
   return (
     <article
-      className={`group relative flex flex-col justify-between bg-white rounded-xs border border-charcoal/10 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-charcoal/25 hover:shadow-md ${
+      className={`group relative flex flex-col justify-between bg-white rounded-xs border border-charcoal/10 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-charcoal/25 hover:shadow-md motion-reduce:hover:transform-none motion-reduce:transition-none ${
         className ?? ""
       }`}
     >
@@ -27,7 +27,7 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, className }) =
               alt={item.name}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
             />
             {item.featured && (
               <div className="absolute top-2.5 left-2.5">
