@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +20,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Keyboard accessibility: close mobile menu on Escape key press
+  // Keyboard accessibility: close mobile menu on Escape key press and restore focus
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && mobileMenuOpen) {
         setMobileMenuOpen(false);
+        toggleButtonRef.current?.focus();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -67,7 +69,7 @@ export default function Header() {
               TRANS AM CAFE
             </span>
             <span className="hidden sm:inline-block text-[10px] uppercase tracking-[0.22em] text-burnt-orange font-semibold mt-0.5">
-              Sandwiches &amp; Art · Phoenix, AZ
+              Sandwiches &amp; Art Gallery
             </span>
           </div>
         </Link>
@@ -103,9 +105,10 @@ export default function Header() {
 
         {/* Mobile Accessible Menu Toggle */}
         <button
+          ref={toggleButtonRef}
           type="button"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
-          className="md:hidden inline-flex items-center justify-center p-2 rounded-xs text-charcoal hover:text-teal hover:bg-charcoal/5 focus-visible:outline-2 focus-visible:outline-teal"
+          className="md:hidden inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2.5 rounded-xs text-charcoal hover:text-teal hover:bg-charcoal/5 focus-visible:outline-2 focus-visible:outline-teal cursor-pointer"
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -118,11 +121,11 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Navigation Drawer with scroll containment */}
       {mobileMenuOpen && (
         <div
           id="mobile-navigation"
-          className="md:hidden fixed inset-x-0 top-full bg-cream-surface border-b border-charcoal/15 px-6 pt-4 pb-8 shadow-xl animate-in slide-in-from-top-2 duration-200"
+          className="md:hidden fixed inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto bg-cream-surface border-b border-charcoal/15 px-6 pt-4 pb-8 shadow-xl animate-in slide-in-from-top-2 duration-200"
         >
           <nav aria-label="Mobile navigation" className="flex flex-col gap-2">
             {siteConfig.nav.map((link) => (
@@ -130,7 +133,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-3 rounded-xs text-base font-medium text-charcoal hover:text-teal hover:bg-cream transition-colors border-b border-charcoal/5 focus-visible:outline-2 focus-visible:outline-teal"
+                className="px-3 py-3 min-h-[44px] flex items-center rounded-xs text-base font-medium text-charcoal hover:text-teal hover:bg-cream transition-colors border-b border-charcoal/5 focus-visible:outline-2 focus-visible:outline-teal"
               >
                 {link.label}
               </Link>

@@ -23,12 +23,12 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "gal-002",
-    title: "Central Avenue Dining Room",
+    title: "Grand Avenue Dining Room",
     description:
       "Our light-filled dining space where handcrafted sandwiches are enjoyed beneath curated gallery walls.",
     category: "Space",
     image: "/images/gallery/cafe-interior.jpg",
-    mediumOrTheme: "Interior Atmosphere · North Central Ave",
+    mediumOrTheme: "Interior Atmosphere · Grand Ave",
     span: "wide",
     featured: true,
   },
@@ -83,10 +83,10 @@ export const communityPillars = [
       "Our walls rotate on a regular cycle, giving guests reasons to return and local Phoenix artists a public platform to exhibit and sell their work directly.",
   },
   {
-    tag: "First Friday Walk",
-    title: "Roosevelt Row Art Walk Connection",
+    tag: "First Friday Community",
+    title: "First Friday Art Walk Nights",
     description:
-      "Every first Friday of the month, Trans Am Cafe participates in the historic Downtown Phoenix Art Walk with extended hours, evening bites, and artist meet-ups.",
+      "During neighborhood First Friday art walks, Trans Am Cafe welcomes visitors to explore rotating artwork and handcrafted fare. Extended hours and artist features are confirmed monthly via @trans_am_phx.",
   },
   {
     tag: "Artist Inquiries",

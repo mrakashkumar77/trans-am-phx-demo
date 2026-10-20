@@ -96,7 +96,7 @@ export default function GallerySection() {
             return (
               <figure
                 key={item.id}
-                className={`group relative flex flex-col overflow-hidden rounded-xs bg-white border border-charcoal/15 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-charcoal/30 hover:shadow-md ${gridClasses}`}
+                className={`group relative flex flex-col overflow-hidden rounded-xs bg-white border border-charcoal/15 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-charcoal/30 hover:shadow-md motion-reduce:hover:transform-none motion-reduce:transition-none ${gridClasses}`}
               >
                 {/* Image Container with Zoom & Click to Open Lightbox */}
                 <div
@@ -117,7 +117,7 @@ export default function GallerySection() {
                     alt={`${item.title} — ${item.category}`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
                   />
 
                   {/* Category Pill Tag */}
@@ -164,7 +164,8 @@ export default function GallerySection() {
                     <button
                       type="button"
                       onClick={() => openLightbox(item)}
-                      className="text-teal font-semibold hover:text-burnt-orange hover:underline focus-visible:outline-2 focus-visible:outline-teal rounded-xs"
+                      className="inline-flex items-center py-1 px-2 -my-1 -mx-2 text-teal font-semibold hover:text-burnt-orange hover:underline focus-visible:outline-2 focus-visible:outline-teal rounded-xs cursor-pointer"
+                      aria-label={`Open full size image of ${item.title}`}
                     >
                       View Full Size →
                     </button>

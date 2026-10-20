@@ -1,113 +1,234 @@
 import React from "react";
 import { Container } from "@/components/ui/Container";
 import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
+import { Badge } from "@/components/ui/Badge";
+import { InstagramIcon } from "@/components/ui/SocialIcons";
+import { FadeIn, FadeInStagger } from "@/components/ui/FadeIn";
 import { siteConfig } from "@/data/site";
-import { MapPin, Phone, Mail, Clock, Compass } from "lucide-react";
+import {
+  MapPin,
+  Clock,
+  AlertCircle,
+  ArrowUpRight,
+  ShieldCheck,
+  Compass,
+} from "lucide-react";
 
 export default function VisitSection() {
   return (
     <section
       id="visit"
-      className="py-16 sm:py-24 bg-cream border-b border-charcoal/10"
-      aria-labelledby="visit-heading"
+      className="py-18 sm:py-24 lg:py-28 bg-charcoal text-cream relative overflow-hidden border-b border-charcoal/20"
+      aria-labelledby="visit-section-heading"
     >
-      <Container size="lg">
-        {/* Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
+      {/* Background Ambience Transition */}
+      <div
+        className="pointer-events-none absolute top-0 right-0 w-96 h-96 bg-teal/10 rounded-full blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 w-80 h-80 bg-burnt-orange/10 rounded-full blur-3xl"
+        aria-hidden="true"
+      />
+
+      <Container size="lg" className="relative z-10">
+        {/* Section Header */}
+        <FadeIn distance={14} className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
           <div className="mb-3">
-            <EyebrowLabel variant="teal" withDash>
+            <EyebrowLabel variant="orange" withDash>
               Plan Your Visit
             </EyebrowLabel>
           </div>
+
           <h2
-            id="visit-heading"
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-teal"
+            id="visit-section-heading"
+            className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cream leading-[1.08] uppercase"
           >
             Visit Trans Am Cafe
           </h2>
-          <div className="mx-auto h-0.5 w-12 bg-burnt-orange my-4" />
-          <p className="text-base text-charcoal-muted leading-relaxed">
-            Conveniently situated in Downtown Phoenix on North Central Avenue,
-            minutes from the Roosevelt Row Arts District.
+
+          <div className="mx-auto h-0.5 w-16 bg-burnt-orange my-5" />
+
+          <p className="text-base sm:text-lg text-cream/80 leading-relaxed max-w-xl mx-auto">
+            Handcrafted sandwiches, fresh refreshments, and rotating local art.
+            Join us at our Grand Avenue location.
           </p>
-        </div>
+        </FadeIn>
 
-        {/* Visit Details Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {/* Card 1: Hours */}
-          <div className="bg-white p-6 sm:p-8 rounded-xs border border-charcoal/10 shadow-xs">
-            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-charcoal/10">
-              <Clock className="size-5 text-burnt-orange" />
-              <h3 className="font-display font-bold text-xl text-charcoal">
-                Weekly Operating Hours
-              </h3>
-            </div>
-            <ul className="space-y-3">
-              {siteConfig.hours.map((schedule) => (
-                <li
-                  key={schedule.day}
-                  className="flex items-center justify-between text-sm py-1.5 border-b border-charcoal/5"
-                >
-                  <span className="font-medium text-charcoal">{schedule.day}</span>
-                  <span className="font-mono text-charcoal-muted text-xs">
-                    {schedule.time}
+        {/* 3-Column Editorial Grid: Location, Opening Hours, Contact & Social */}
+        <FadeInStagger className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* ── CARD 1: VISIT US & LOCATION (Cols 1-4) ── */}
+          <FadeIn distance={12} className="lg:col-span-4 h-full">
+            <div className="h-full p-7 sm:p-8 rounded-xs bg-charcoal-light border border-cream/15 flex flex-col justify-between shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+              <div>
+                <div className="flex items-center justify-between pb-3 mb-5 border-b border-cream/10">
+                  <span className="text-[11px] font-mono text-burnt-orange uppercase tracking-wider font-semibold">
+                    Location Details
                   </span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-xs text-charcoal-subtle mt-5 pt-3 border-t border-charcoal/10">
-              Kitchen closes 30 minutes prior to listed closing times.
-            </p>
-          </div>
+                  <MapPin className="size-4 text-burnt-orange" />
+                </div>
 
-          {/* Card 2: Location & Contact */}
-          <div className="bg-white p-6 sm:p-8 rounded-xs border border-charcoal/10 shadow-xs flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-charcoal/10">
-                <MapPin className="size-5 text-teal" />
-                <h3 className="font-display font-bold text-xl text-charcoal">
-                  Location &amp; Access
+                <h3 className="font-display font-bold text-2xl text-cream mb-1">
+                  {siteConfig.name}
                 </h3>
-              </div>
+                <p className="text-xs font-mono text-cream/60 uppercase tracking-widest mb-6">
+                  Sandwich Shop &amp; Art Gallery
+                </p>
 
-              <div className="space-y-4 text-sm text-charcoal-muted">
-                <div>
-                  <span className="font-bold text-charcoal block mb-0.5">
-                    Physical Address:
+                {/* Supplied Address Display */}
+                <div className="p-4 rounded-xs bg-charcoal border border-cream/10 mb-6">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-burnt-orange block mb-1">
+                    Supplied Address
                   </span>
-                  <p>{siteConfig.address}</p>
+                  <p className="font-display font-bold text-xl sm:text-2xl text-cream">
+                    {siteConfig.address}
+                  </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                  <div className="flex items-center gap-2">
-                    <Phone className="size-4 text-burnt-orange shrink-0" />
-                    <a
-                      href={`tel:${siteConfig.phone.replace(/[^0-9]/g, "")}`}
-                      className="hover:text-teal font-medium transition-colors"
-                    >
-                      {siteConfig.phone}
-                    </a>
+                {/* Unverified City/State Notice & Directions Policy */}
+                <div className="p-4 rounded-xs bg-cream/5 border border-cream/10 text-xs text-cream/70 space-y-2">
+                  <div className="flex items-center gap-2 text-burnt-orange font-semibold">
+                    <AlertCircle className="size-3.5 shrink-0" />
+                    <span>Map Directions Status</span>
                   </div>
+                  <p className="leading-relaxed">
+                    The street address (1506 Grand Ave) is provided directly by the owner&apos;s
+                    Instagram bio. City and state details are awaiting independent confirmation
+                    prior to publishing turn-by-turn map links, avoiding any inaccurate destinations.
+                  </p>
+                </div>
+              </div>
 
-                  <div className="flex items-center gap-2">
-                    <Mail className="size-4 text-teal shrink-0" />
-                    <a
-                      href={`mailto:${siteConfig.email}`}
-                      className="hover:text-teal font-medium transition-colors"
+              {/* Directions Action Button (Pending confirmation state) */}
+              <div className="mt-8 pt-4 border-t border-cream/10">
+                <button
+                  type="button"
+                  disabled
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xs bg-cream/10 text-cream/60 text-xs font-mono uppercase tracking-wider border border-cream/15 cursor-not-allowed"
+                  title="Directions link will activate once city/state details are confirmed"
+                >
+                  <Compass className="size-3.5" />
+                  <span>Directions Pending Full Address</span>
+                </button>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* ── CARD 2: OPENING HOURS (Cols 5-8) ── */}
+          <FadeIn distance={12} delay={0.08} className="lg:col-span-4 h-full">
+            <div className="h-full p-7 sm:p-8 rounded-xs bg-charcoal-light border border-cream/15 flex flex-col justify-between shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+              <div>
+                <div className="flex items-center justify-between pb-3 mb-5 border-b border-cream/10">
+                  <span className="text-[11px] font-mono text-burnt-orange uppercase tracking-wider font-semibold">
+                    Operating Hours
+                  </span>
+                  <Clock className="size-4 text-teal-light" />
+                </div>
+
+                <h3 className="font-display font-bold text-2xl text-cream mb-1">
+                  Weekly Schedule
+                </h3>
+                <p className="text-xs font-mono text-cream/60 uppercase tracking-widest mb-6">
+                  Instagram Bio Sourced
+                </p>
+
+                {/* Hours Table */}
+                <ul className="space-y-2.5 text-sm" role="list">
+                  {siteConfig.hours.map((schedule) => (
+                    <li
+                      key={schedule.day}
+                      className="flex items-center justify-between py-2 border-b border-cream/5"
                     >
-                      {siteConfig.email}
-                    </a>
-                  </div>
+                      <span className="font-medium text-cream">{schedule.day}</span>
+                      <span
+                        className={`font-mono text-xs px-2.5 py-0.5 rounded-xs ${
+                          schedule.isClosed
+                            ? "bg-cream/10 text-cream/40"
+                            : "bg-teal/40 text-cream border border-teal/40 font-semibold"
+                        }`}
+                      >
+                        {schedule.time}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Pre-launch confirmation notice */}
+              <div className="mt-6 pt-4 border-t border-cream/10">
+                <div className="flex items-start gap-2 text-[11px] font-mono text-cream/60 leading-relaxed">
+                  <ShieldCheck className="size-3.5 text-sage shrink-0 mt-0.5" />
+                  <span>
+                    Please confirm current holiday or First Friday extended hours with management
+                    before visiting.
+                  </span>
                 </div>
               </div>
             </div>
+          </FadeIn>
 
-            <div className="mt-6 pt-4 border-t border-charcoal/10 flex items-center gap-2 text-xs font-mono text-charcoal-subtle">
-              <Compass className="size-4 text-teal" />
-              <span>LIGHT RAIL ACCESSIBLE · STREET &amp; REAR PARKING AVAILABLE</span>
+          {/* ── CARD 3: CONTACT & SOCIAL (Cols 9-12) ── */}
+          <FadeIn distance={12} delay={0.16} className="lg:col-span-4 h-full">
+            <div className="h-full p-7 sm:p-8 rounded-xs bg-teal text-cream border border-teal-deep flex flex-col justify-between shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+              <div>
+                <div className="flex items-center justify-between pb-3 mb-5 border-b border-cream/15">
+                  <span className="text-[11px] font-mono text-burnt-orange uppercase tracking-wider font-semibold">
+                    Get in Touch
+                  </span>
+                  <InstagramIcon size={16} />
+                </div>
+
+                <h3 className="font-display font-bold text-2xl text-cream mb-1">
+                  Contact &amp; Social
+                </h3>
+                <p className="text-xs font-mono text-cream/70 uppercase tracking-widest mb-6">
+                  Verified Social Presence
+                </p>
+
+                {/* Instagram Official Profile CTA */}
+                <div className="p-5 rounded-xs bg-charcoal/30 border border-cream/15 mb-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge variant="orange" size="sm">
+                      Verified Instagram
+                    </Badge>
+                  </div>
+                  <h4 className="font-display font-bold text-lg text-cream mb-1">
+                    {siteConfig.instagramHandle}
+                  </h4>
+                  <p className="text-xs text-cream/80 leading-relaxed mb-4">
+                    For daily sandwich specials, artist features, and inquiries, follow and
+                    message the cafe on Instagram.
+                  </p>
+                  <a
+                    href={siteConfig.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xs bg-burnt-orange text-white hover:bg-burnt-orange-dark font-medium text-xs tracking-wider uppercase transition-colors shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream cursor-pointer"
+                  >
+                    <span>Open Instagram Profile</span>
+                    <ArrowUpRight className="size-3.5" />
+                  </a>
+                </div>
+
+                {/* Contact Field Policy Note */}
+                <div className="p-4 rounded-xs bg-black/20 border border-cream/10 text-xs text-cream/75 leading-relaxed">
+                  <span className="font-semibold text-cream block mb-1">
+                    Contact Channels:
+                  </span>
+                  No phone number or email was listed in your public profile. To preserve data
+                  accuracy, we have avoided placeholder details and will add your preferred contact
+                  channels once supplied.
+                </div>
+              </div>
+
+              {/* Micro Tagline */}
+              <div className="mt-6 pt-4 border-t border-cream/15 flex items-center justify-between text-[11px] font-mono text-cream/60">
+                <span>EST. GRAND AVE</span>
+                <span>INDEPENDENT &amp; LOCAL</span>
+              </div>
             </div>
-          </div>
-        </div>
+          </FadeIn>
+        </FadeInStagger>
       </Container>
     </section>
   );

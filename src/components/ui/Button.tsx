@@ -33,7 +33,7 @@ export const Button = React.forwardRef<
   ) => {
     // Editorial aesthetic: clean, architectural corners (not excessive pill shapes)
     const baseStyles =
-      "inline-flex items-center justify-center font-medium tracking-wide transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal rounded-sm";
+      "inline-flex items-center justify-center font-medium tracking-wide transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal rounded-sm motion-reduce:hover:transform-none motion-reduce:transition-none";
 
     const variantStyles = {
       // Primary: Deep Teal anchor with Warm Cream text

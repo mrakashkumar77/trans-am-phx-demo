@@ -22,14 +22,25 @@ export interface HeroSlide {
   image: string; // path or URL
 }
 
+export interface OpeningHoursEntry {
+  day: string;
+  time: string;
+  isClosed?: boolean;
+}
+
 export interface SiteInfo {
   name: string;
   tagline: string;
   description: string;
   address: string;
-  phone: string;
-  email: string;
-  hours: { day: string; time: string }[];
+  isAddressVerified: boolean;
+  addressNotice?: string;
+  phone?: string;
+  email?: string;
+  instagramHandle: string;
+  instagramUrl: string;
+  hours: OpeningHoursEntry[];
+  hoursNotice?: string;
   social: SocialLink[];
   nav: NavLink[];
 }
