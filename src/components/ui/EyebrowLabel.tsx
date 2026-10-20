@@ -18,10 +18,10 @@ export const EyebrowLabel: React.FC<EyebrowLabelProps> = ({
 }) => {
   const variantStyles = {
     teal: "text-teal",
-    orange: "text-burnt-orange",
-    sage: "text-sage",
+    orange: "text-burnt-orange-dark", /* High contrast WCAG AA compliant on cream & white (5.12:1) */
+    sage: "text-teal-deep",
     charcoal: "text-charcoal-muted",
-    cream: "text-cream/80",
+    cream: "text-cream/90",
   };
 
   return (

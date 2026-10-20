@@ -97,12 +97,11 @@ export default function AboutSection() {
             <FileEdit className="size-4 text-burnt-orange shrink-0 mt-0.5" />
             <div className="text-xs text-charcoal-muted leading-relaxed">
               <span className="font-semibold text-charcoal block mb-0.5">
-                Copywriting &amp; Story Notice:
+                Client Demonstration Note:
               </span>
-              This copy is written to be neutral and welcoming for the design presentation.
-              No founding year, history, owner biography, or unverified claims have been
-              assumed. When the owner provides their official narrative, it can be dropped
-              directly into this section.
+              This narrative is crafted as a welcoming baseline for this design presentation.
+              We have deliberately avoided assuming your founding history or personal biography.
+              When ready, your official story and photography can replace this copy seamlessly.
             </div>
           </div>
         </FadeIn>

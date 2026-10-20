@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
@@ -44,8 +42,8 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex size-9 items-center justify-center rounded-xs bg-cream/10 border border-cream/20 text-cream/80 hover:text-white hover:bg-burnt-orange hover:border-burnt-orange transition-all duration-150"
-                  aria-label={social.platform}
+                  className="flex size-11 items-center justify-center rounded-xs bg-cream/10 border border-cream/20 text-cream/90 hover:text-white hover:bg-burnt-orange hover:border-burnt-orange transition-all duration-150 focus-visible:outline-2 focus-visible:outline-cream focus-visible:outline-offset-2"
+                  aria-label={`Trans Am Cafe on ${social.platform}`}
                 >
                   {socialIconMap[social.platform]}
                 </a>
@@ -55,7 +53,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-display text-sm font-semibold tracking-wider uppercase text-burnt-orange mb-4">
+            <h3 className="font-display text-sm font-semibold tracking-wider uppercase !text-white mb-4">
               Navigation
             </h3>
             <ul className="space-y-2.5">
@@ -63,7 +61,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-cream/70 hover:text-white hover:underline underline-offset-4 transition-colors"
+                    className="inline-block py-1 text-sm text-cream/80 hover:text-white hover:underline underline-offset-4 transition-colors focus-visible:outline-2 focus-visible:outline-cream rounded-xs"
                   >
                     {link.label}
                   </Link>
@@ -74,15 +72,15 @@ export default function Footer() {
 
           {/* Location & Social */}
           <div>
-            <h3 className="font-display text-sm font-semibold tracking-wider uppercase text-burnt-orange mb-4">
+            <h3 className="font-display text-sm font-semibold tracking-wider uppercase !text-white mb-4">
               Location &amp; Contact
             </h3>
-            <ul className="space-y-3 text-sm text-cream/80">
+            <ul className="space-y-3 text-sm text-cream/85">
               <li className="flex items-start gap-2.5">
                 <MapPin className="size-4 text-burnt-orange shrink-0 mt-0.5" />
                 <div>
                   <span className="font-medium text-cream">{siteConfig.address}</span>
-                  <span className="text-xs text-cream/50 block mt-0.5">
+                  <span className="text-xs text-cream/65 block mt-0.5">
                     (City &amp; state pending confirmation)
                   </span>
                 </div>
@@ -93,7 +91,7 @@ export default function Footer() {
                   <Phone className="size-4 text-burnt-orange shrink-0" />
                   <a
                     href={`tel:${siteConfig.phone.replace(/[^0-9]/g, "")}`}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-cream rounded-xs"
                   >
                     {siteConfig.phone}
                   </a>
@@ -105,7 +103,7 @@ export default function Footer() {
                   <Mail className="size-4 text-burnt-orange shrink-0" />
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-cream rounded-xs"
                   >
                     {siteConfig.email}
                   </a>
@@ -117,7 +115,7 @@ export default function Footer() {
                   href={siteConfig.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs text-burnt-orange hover:text-cream transition-colors font-mono"
+                  className="inline-flex items-center gap-2 text-xs text-burnt-orange hover:text-cream transition-colors font-mono focus-visible:outline-2 focus-visible:outline-cream rounded-xs"
                 >
                   <span>Instagram: {siteConfig.instagramHandle}</span>
                 </a>
@@ -131,16 +129,16 @@ export default function Footer() {
               <Clock className="size-4 text-burnt-orange" />
               Hours
             </h3>
-            <ul className="space-y-2 text-sm text-cream/80">
+            <ul className="space-y-2 text-sm text-cream/85">
               {siteConfig.hours.map((schedule) => (
                 <li
                   key={schedule.day}
                   className="flex justify-between border-b border-cream/10 pb-1"
                 >
-                  <span className="text-cream/70">{schedule.day}</span>
+                  <span className="text-cream/80">{schedule.day}</span>
                   <span
                     className={`font-mono text-xs ${
-                      schedule.isClosed ? "text-cream/40" : "font-medium text-cream"
+                      schedule.isClosed ? "text-cream/65 font-medium" : "font-semibold text-cream"
                     }`}
                   >
                     {schedule.time}
@@ -152,7 +150,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/50">
+        <div className="pt-8 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/70">
           <p>
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>

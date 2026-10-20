@@ -14,7 +14,7 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, className }) =
 
   return (
     <article
-      className={`group relative flex flex-col justify-between bg-white rounded-xs border border-charcoal/10 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-charcoal/25 hover:shadow-md motion-reduce:hover:transform-none motion-reduce:transition-none ${
+      className={`group relative flex flex-col justify-between h-full bg-white rounded-xs border border-charcoal/10 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-charcoal/25 hover:shadow-md motion-reduce:hover:transform-none motion-reduce:transition-none ${
         className ?? ""
       }`}
     >
@@ -24,7 +24,7 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, className }) =
           <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-xs bg-cream-soft border-b border-charcoal/10">
             <Image
               src={item.image}
-              alt={item.name}
+              alt={`${item.name} handcrafted sandwich at Trans Am Cafe`}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
@@ -46,7 +46,7 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, className }) =
             <h3 className="font-display font-bold text-lg sm:text-xl text-charcoal group-hover:text-teal transition-colors leading-snug">
               {item.name}
             </h3>
-            <span className="font-mono text-base font-bold text-burnt-orange shrink-0">
+            <span className="font-mono text-base font-bold text-burnt-orange-dark shrink-0">
               {formatPrice(item.price)}
             </span>
           </div>

@@ -34,9 +34,9 @@ export const FadeIn: React.FC<FadeInProps> = ({
       case "down":
         return { x: 0, y: -distance };
       case "left":
-        return { x: distance, y: 0 };
-      case "right":
         return { x: -distance, y: 0 };
+      case "right":
+        return { x: distance, y: 0 };
       default:
         return { x: 0, y: 0 };
     }

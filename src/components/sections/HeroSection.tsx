@@ -43,7 +43,7 @@ export default function HeroSection() {
             {/* Main Headline */}
             <h1
               id="hero-headline"
-              className="font-display text-4xl sm:text-6xl lg:text-[4.25rem] xl:text-[5rem] font-bold tracking-tight leading-[1.06] text-teal uppercase"
+              className="font-display text-[2rem] xs:text-4xl sm:text-6xl lg:text-[4.25rem] xl:text-[5rem] font-bold tracking-tight leading-[1.06] text-teal uppercase"
             >
               <span className="block">Good Food.</span>
               <span className="block text-burnt-orange">Great Art.</span>
@@ -60,35 +60,41 @@ export default function HeroSection() {
             </p>
 
             {/* Primary & Secondary Call to Actions */}
-            <div className="flex flex-wrap items-center gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 mb-10 w-full sm:w-auto">
               <Button
                 href="#menu"
                 variant="primary"
                 size="lg"
                 icon={<ArrowRight className="size-4" />}
                 iconPosition="right"
+                className="w-full sm:w-auto text-center"
               >
                 Explore the Menu
               </Button>
-              <Button href="#gallery" variant="secondary" size="lg">
+              <Button
+                href="#gallery"
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto text-center"
+              >
                 Discover Our Art
               </Button>
             </div>
 
             {/* Retro Ticket / Micro-Details Strip */}
-            <div className="w-full max-w-lg border-t border-b border-charcoal/15 py-3.5 flex flex-wrap items-center justify-between gap-4 text-xs font-medium text-charcoal-muted">
+            <div className="w-full max-w-lg border-t border-b border-charcoal/15 py-3.5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-xs font-medium text-charcoal-muted">
               <div className="flex items-center gap-2">
-                <Utensils className="size-3.5 text-burnt-orange" />
+                <Utensils className="size-3.5 text-burnt-orange shrink-0" />
                 <span>Made-to-Order Sandwiches</span>
               </div>
-              <span className="text-charcoal/30">•</span>
+              <span className="hidden sm:inline text-charcoal/30" aria-hidden="true">•</span>
               <div className="flex items-center gap-2">
-                <Palette className="size-3.5 text-teal" />
+                <Palette className="size-3.5 text-teal shrink-0" />
                 <span>Monthly Rotating Gallery</span>
               </div>
-              <span className="text-charcoal/30">•</span>
+              <span className="hidden sm:inline text-charcoal/30" aria-hidden="true">•</span>
               <div className="flex items-center gap-2">
-                <MapPin className="size-3.5 text-burnt-orange" />
+                <MapPin className="size-3.5 text-burnt-orange shrink-0" />
                 <span>1506 Grand Ave</span>
               </div>
             </div>
@@ -126,6 +132,7 @@ export default function HeroSection() {
                   src="/images/hero-gallery.jpg"
                   alt="Contemporary artwork exhibition walls inside Trans Am Cafe"
                   fill
+                  priority
                   sizes="(max-width: 768px) 60vw, 30vw"
                   className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03] motion-reduce:transform-none"
                 />

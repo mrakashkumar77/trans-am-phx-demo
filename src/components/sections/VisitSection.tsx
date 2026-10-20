@@ -203,21 +203,21 @@ export default function VisitSection() {
                     href={siteConfig.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xs bg-burnt-orange text-white hover:bg-burnt-orange-dark font-medium text-xs tracking-wider uppercase transition-colors shadow-xs"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xs bg-burnt-orange text-white hover:bg-burnt-orange-dark font-medium text-xs tracking-wider uppercase transition-colors shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream cursor-pointer"
                   >
                     <span>Open Instagram Profile</span>
                     <ArrowUpRight className="size-3.5" />
                   </a>
                 </div>
 
-                {/* Uninvented Contact Field Policy Note */}
+                {/* Contact Field Policy Note */}
                 <div className="p-4 rounded-xs bg-black/20 border border-cream/10 text-xs text-cream/75 leading-relaxed">
                   <span className="font-semibold text-cream block mb-1">
-                    Phone &amp; Email Notice:
+                    Contact Channels:
                   </span>
-                  No phone number or email address is published in the cafe&apos;s bio. In adherence
-                  to data integrity standards, contact information has not been invented and will be
-                  added once supplied by the owner.
+                  No phone number or email was listed in your public profile. To preserve data
+                  accuracy, we have avoided placeholder details and will add your preferred contact
+                  channels once supplied.
                 </div>
               </div>
 

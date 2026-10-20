@@ -75,7 +75,7 @@ export default function MenuSection() {
                   role="tab"
                   aria-selected={isSelected}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide transition-all duration-150 rounded-xs cursor-pointer focus-visible:outline-2 focus-visible:outline-teal ${
+                  className={`px-4 py-2.5 sm:py-2 min-h-[44px] inline-flex items-center text-xs sm:text-sm font-semibold tracking-wide transition-all duration-150 rounded-xs cursor-pointer focus-visible:outline-2 focus-visible:outline-teal ${
                     isSelected
                       ? "bg-teal text-cream shadow-xs"
                       : "text-charcoal hover:text-teal hover:bg-cream"

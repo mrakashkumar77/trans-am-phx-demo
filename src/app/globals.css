@@ -19,7 +19,7 @@
   --color-burnt-orange-dark: #A94726;
   --color-charcoal:      #202321;
   --color-charcoal-muted: #59615B;
-  --color-charcoal-subtle: #8A948C;
+  --color-charcoal-subtle: #5A655E; /* Adjusted from #8A948C for 5.5:1 WCAG AA compliance */
   --color-sage:          #A7B4A0;
   --color-sage-soft:     #C8D2C3;
   --color-white:         #FFFFFF;
@@ -140,11 +140,27 @@ p {
   line-height: 1.7;
 }
 
+/* Ensure smooth anchor navigation offsets cleanly below fixed header */
+section[id],
+main[id] {
+  scroll-margin-top: 4.5rem;
+}
+
 /* ── Accessible Focus States ──────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--color-teal);
   outline-offset: 3px;
   border-radius: var(--radius-xs);
+}
+
+/* High-contrast focus rings on dark surfaces (Charcoal & Teal) */
+.bg-teal :focus-visible,
+.bg-charcoal :focus-visible,
+.bg-charcoal-light :focus-visible,
+footer :focus-visible,
+[data-theme="dark"] :focus-visible {
+  outline-color: var(--color-cream);
+  outline-offset: 3px;
 }
 
 /* ── Selection ────────────────────────────────────────────────── */
